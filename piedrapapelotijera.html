@@ -4,27 +4,28 @@
         <meta charset="utf-8" />
         <title>Piedra, papel o tijera</title>
         <script>
-            function aleatorio(min,max){ return Math.floor(Math.random()*(max - min + 1 ) + 1 )}
+            function aleatorio(min,max) { 
+                return Math.floor(Math.random()*(max - min + 1 ) + 1 )
+            }
+            function eleccion(jugada) {
+                let resultado =""
+                if(jugada == 1){
+                    resultado = " piedra 🪨"
+                } else if(jugada == 2 ) {
+                    resultado = " papel 📄"
+                } else if (jugada ==3 ){
+                    resultado = " tijera ✂️"
+                } else {
+                    resultado = "selecciona una opción válida⛔"
+                } 
+                return resultado 
+            }
             let jugador = 0
             let pc = aleatorio(1,3)
             jugador =prompt( "elige 1 para piedra, 2 para papel o 3 para tijera")
-            
-            if(jugador == 1){
-                alert("elegiste piedra 🪨")
-            } else if(jugador == 2 ) {
-                alert("elegiste papel 📄")
-            } else if (jugador ==3){
-                alert("elegiste tijera ✂️")
-            } else {
-                alert("selecciona una opción válida⛔")
-            }
-            if(pc == 1){
-                alert("pc elige  piedra 🪨")
-            } else if(pc == 2 ) {
-                alert("pc elige papel 📄")
-            } else if (pc ==3){
-                alert("pc elige tijera ✂️")
-            }
+            alert("PC elige: " + eleccion(pc))
+            alert("Tu eliges: " + eleccion(jugador))
+
             // COMBATEEEE!!!
             if(pc == jugador){
                 alert("¡es un empate!")
