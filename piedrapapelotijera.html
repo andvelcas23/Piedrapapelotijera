@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>Piedra, papel o tijera</title>
         <script>
+            // En esta ultima version se van a añadir las opciones de Lagarto y spok. 
             function aleatorio(min,max) { 
                 return Math.floor(Math.random()*(max - min + 1 ) + 1 )
             }
@@ -15,6 +16,10 @@
                     resultado = " papel 📄"
                 } else if (jugada ==3 ){
                     resultado = " tijera ✂️"
+                } else if (jugada == 4 ){
+                    resultado = " lagarto🐊"
+                } else if (jugada == 5 ){
+                    resultado = " spoc 🫳 "
                 } else {
                     resultado = "selecciona una opción válida⛔"
                 } 
@@ -26,16 +31,17 @@
             let perdidas = 0
             
             while (triunfos < 3 && perdidas < 3 ){
-                pc = aleatorio(1,3)
-                jugador =prompt( "elige 1 para piedra, 2 para papel o 3 para tijera")
+                pc = aleatorio(1,5)
+                jugador =prompt( "elige 1 para piedra, 2 para papel, 3 para tijera, 4 para lagarto y 5 para spok")
                 alert("Tu eliges: " + eleccion(jugador))
                 alert("PC elige: " + eleccion(pc))
                 // COMBATEEEE!!!
                 if(pc == jugador){
                     alert("¡es un empate!")
-                } else if(jugador == 1 && pc == 3 || jugador == 2 && pc == 1 || jugador == 3 && pc == 2 ){
+                } else if(jugador == 1 && pc == 3 | pc == 4 || jugador == 2 && pc == 1 | pc == 5 ||
+                 jugador == 3 && pc == 2 | pc == 4 || jugador == 4 && pc == 5 | pc == 2 || jugador == 5 && pc == 3 | pc == 1){
                     alert("¡ganaste!")
-                    trinfos = triunfos + 1
+                    triunfos = triunfos + 1
                 } else {
                     alert("perdiste :( intétalo de nuevo :)")
                     perdidas = perdidas + 1
